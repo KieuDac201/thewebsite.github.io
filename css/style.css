@@ -39,7 +39,6 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
   font-family: 'Roboto', sans-serif;
-  overflow-x: hidden;
 }
 
 html header {
@@ -163,13 +162,13 @@ html section .title {
 }
 
 html .hero {
-  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: hidden;
 }
 
 html .hero .main {
@@ -179,11 +178,12 @@ html .hero .main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 18rem 0;
 }
 
 @media screen and (max-width: 1110px) {
   html .hero .main {
-    padding: 0 2rem;
+    padding: 18rem 2rem;
   }
 }
 
@@ -193,6 +193,17 @@ html .hero .main {
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+    padding: 18rem 2rem 16rem 2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html .hero .main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    padding: 18rem 2rem 14rem 2rem;
   }
 }
 
@@ -273,6 +284,20 @@ html .hero .main__img {
 }
 
 @media screen and (max-width: 768px) {
+  html .hero .main__img {
+    width: 60%;
+    margin-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html .hero .main__img {
+    width: 80%;
+    margin-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
   html .hero .main__img {
     width: 100%;
     margin-bottom: 5rem;
@@ -375,12 +400,26 @@ html .hero .main__img .language span {
   }
 }
 
+@media screen and (max-width: 420px) {
+  html .hero .main__img .language span {
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.4rem;
+  }
+}
+
 html .hero .main__img .language span.html {
   left: 2rem;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   background-color: #eaa023;
+}
+
+@media screen and (max-width: 420px) {
+  html .hero .main__img .language span.html {
+    left: -2rem;
+  }
 }
 
 html .hero .main__img .language span.css {
@@ -797,6 +836,7 @@ html .students .title h2 {
 @media screen and (max-width: 576px) {
   html .students .title h2 {
     font-size: 2.8rem;
+    padding: 0 1rem;
   }
 }
 
@@ -959,6 +999,12 @@ html .contact .main__img img {
 html .contact .main__form {
   width: 50%;
   padding-left: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media screen and (max-width: 1110px) {
@@ -993,6 +1039,7 @@ html .contact .main__form form {
 @media screen and (max-width: 768px) {
   html .contact .main__form form {
     width: 100%;
+    padding: 2rem;
   }
 }
 
