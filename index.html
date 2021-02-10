@@ -277,9 +277,21 @@
 <script>
   const menuIcon = document.querySelector('.nav__icon i');
   const navMenu = document.querySelector('.nav__menu');
-
+  const navMenuLink = document.querySelectorAll('.nav__menu--link');
+  navMenuLink.forEach(e => {
+    e.addEventListener('click', () => {
+      if(navMenu.getAttribute('class').includes('active')){
+        navMenu.classList.remove('active')
+      }
+    })
+  })
   menuIcon.addEventListener('click', () => {
-    navMenu.classList.toggle('active')
+    
+    if(navMenu.getAttribute('class').includes('active')){
+        navMenu.classList.remove('active')
+    }else{
+      navMenu.classList.add('active')
+    }
     if(menuIcon.getAttribute('class').includes('fa-bars')){
       menuIcon.classList.remove('fa-bars');
       menuIcon.classList.add('fa-times');
