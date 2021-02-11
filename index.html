@@ -306,6 +306,8 @@
     e.addEventListener('click', () => {
       if(navMenu.getAttribute('class').includes('active')){
         navMenu.classList.remove('active')
+        menuIcon.classList.add('fa-bars');
+        menuIcon.classList.remove('fa-times');
       }
     })
   })
