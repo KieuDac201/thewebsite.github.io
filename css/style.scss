@@ -1,13 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 @import 'media-query';
-$main-color: #24caac;
-$color-1: #eaa023;
-$color-2: #e91e63;
-$dark-700: #2f363e;
-$dark-800: #24292d;
-$white-900: #ffffff;
-$white-800: rgba(255,255,255,0.8);
-
+:root{
+    --main-color: #24caac;
+    --color-1: #eaa023;
+    --color-2: #e91e63;
+    --dark-700: #2f363e;
+    --dark-800: #24292d;
+    --white-900: #ffffff;
+    --white-800: rgba(255,255,255,0.8); 
+}
+body{
+    transition: all 1s linear; 
+}
+body.light{
+    --main-color: #24caac;
+    --color-1: #eaa023;
+    --color-2: #e91e63;
+    --dark-700: #2f363e;
+    --dark-800: #24292d;
+    --white-900: #ffffff;
+    --white-800: rgba(255,255,255,0.8);
+    transition: all 1s linear; 
+}
+body.dark{
+    --main-color: #24caac;
+    --color-1: #eaa023;
+    --color-2: #e91e63;
+    --dark-700: rgb(228, 228, 228);
+    --dark-800: #ffffff;
+    --white-900: #24292d;
+    --white-800: #2f363e;
+    transition: all 1s linear; 
+}
 *{
     padding: 0;
     margin: 0;
@@ -20,13 +44,30 @@ $white-800: rgba(255,255,255,0.8);
 }
 a{
     text-decoration: none;
-    color: $white-900;
+    color: var(--white-900);
+}
+.btn-toggle{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: var(--white-800);
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-800);
+    font-size: 1.6rem;
+    cursor: pointer;
+    z-index: 8;
 }
 .btn{
     padding: 1.5rem 3.3rem;
-    background-color: $main-color;
+    background-color: var(--main-color);
     border-radius: 999px;
-    color: $white-900;
+    color: var(--white-900);
     font-size: 1.6rem;
     display: inline-block;
     font-weight: 500;
@@ -44,8 +85,8 @@ html{
     header{
         width: 100%;
         position: absolute;
-        background-color: $dark-800;
-        border-bottom: 1px solid $white-800;
+        background-color: var(--dark-800);
+        border-bottom: 1px solid var(--white-800);
         .nav{
             display: flex;
             align-items: center;
@@ -65,7 +106,7 @@ html{
                 font-size: 1.7rem;
                 &--link{
                     margin: 0 10px;
-                    color: $white-800;
+                    color: var(--white-800);
                 }
                 @include tablet-lg{
                     display: none;
@@ -76,7 +117,7 @@ html{
                         left: 0;
                         width: 100vw;
                         height: 100vh;
-                        background-color: $dark-700;
+                        background-color: var(--dark-700);
                         z-index: 9;
                         flex-direction: column;
                         align-items: center;
@@ -84,16 +125,16 @@ html{
                         a{
                             margin: 3rem 10px;
                             display: inline-block;
-                            color: $white-800;
+                            color: var(--white-800);
                             font-size: 2.4rem;
-                            color: $main-color;
+                            color: var(--main-color);
                         }
                     }
                 }
             }
             &__icon{
                 font-size: 3rem;
-                color: $white-800;
+                color: var(--white-800);
                 display: none;
                 @include tablet-lg{
                     display: block;
@@ -110,11 +151,11 @@ html{
     }
     section{
         width: 100%;
-        background-color: $dark-800;
+        background-color: var(--dark-800);
         .title{
             font-size: 2.5rem;
             text-align: center;
-            color: $white-900;
+            color: var(--white-900);
             @include mobile{
                 font-size: 2.2rem;
             }
@@ -149,7 +190,7 @@ html{
                     font-weight: 900;
                     text-transform: uppercase;
                     line-height: 1.2;
-                    color: $main-color;
+                    color: var(--main-color);
                     @include tablet-xlg{
                         font-size: 4.5rem;
                     }
@@ -157,7 +198,7 @@ html{
                         font-size: 4rem;
                     }
                     span{
-                        color: $color-2;
+                        color: var(--color-2);
                         position: relative;
                         display: inline-block;
                         z-index: 1;
@@ -167,14 +208,14 @@ html{
                             width: 100%;
                             height: 2px;
                             bottom: 1rem;
-                            background-color: $white-900;
+                            background-color: var(--white-900);
                             transform: rotate(-4deg);
                             z-index: -1;
                         }
                     }
                 }
                 h4{
-                    color: $white-900;
+                    color: var(--white-900);
                     font-size: 2rem;
                     font-weight: 400;
                     margin: 1.5rem 0;
@@ -249,14 +290,14 @@ html{
                         border-radius: 50%;
                         align-items: center;
                         justify-content: center;
-                        color: $white-800;
+                        color: var(--white-800);
                         font-size: 1.6rem;
                         animation: rotate-c 25s linear infinite;
                         &.html{
                             left: 2rem;
                             top: 50%;
                             transform: translateY(-50%);
-                            background-color: $color-1;
+                            background-color: var(--color-1);
                             @include mobile-sm{
                                 left: -2rem;
                             }
@@ -265,19 +306,19 @@ html{
                             right: 1rem;
                             top: 50%;
                             transform: translateY(-50%);
-                            background-color: $color-2;
+                            background-color: var(--color-2);
                         }
                         &.js{
                             top: -4rem;
                             left: 50%;
                             transform: translateX(-50%);
-                            background-color: $main-color;
+                            background-color: var(--main-color);
                         }
                         &.react{
                             bottom: -4rem;
                             left: 50%;
                             transform: translateX(-50%);
-                            background-color: $dark-700
+                            background-color: var(--dark-700)
                         }
                     }
                 }
@@ -307,7 +348,7 @@ html{
                 content: '';
                 height: 2px;
                 width: 35%;
-                background-color: $white-900;
+                background-color: var(--white-900);
                 position: absolute;
                 bottom: 0;
                 right: 0;
@@ -330,21 +371,21 @@ html{
             }
             &__card{
                 padding: 3.8rem;
-                background-color: $dark-700;
+                background-color: var(--dark-700);
                 box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
                 cursor: pointer;
                 &--icon{
-                    color: $main-color;
+                    color: var(--main-color);
                     font-size: 2.5rem;
                 }
                 &--title{
-                    color: $white-900;
+                    color: var(--white-900);
                     font-size: 1.8rem;
                     font-weight: 500;
                     margin: 1rem 0;
                 }
                 &--desc{
-                    color: $white-800;
+                    color: var(--white-800);
                     font-size: 1.4rem;
                     font-weight: 300;
                     line-height: 1.4;
@@ -374,7 +415,7 @@ html{
                 position: absolute;
                 width: 48%;
                 height: 2px;
-                background-color: $main-color;
+                background-color: var(--main-color);
                 left: 0;
                 bottom: 0;
                 transform: rotate(-5deg);
@@ -398,7 +439,7 @@ html{
                 border-radius: 5px;
                 cursor: pointer;
                 overflow: hidden;
-                background-color: $dark-800;
+                background-color: var(--dark-800);
                 padding-bottom: 1rem;
                 &--img{
                     width: 100%;
@@ -411,15 +452,15 @@ html{
                     justify-content: space-between;
                     align-items: center;
                     padding: 1rem;
-                    color: $white-800;
+                    color: var(--white-800);
                     font-size: 1.3rem;
                     div{
-                        color: $color-1;
+                        color: var(--color-1);
                         font-size: 1.2rem;
                     }
                 }
                 &--name{
-                    color: $white-900;
+                    color: var(--white-900);
                     font-size: 1.7rem;
                     font-weight: 500;
                     padding-left: 1rem;
@@ -452,7 +493,7 @@ html{
                     position: absolute;
                     width: 70%;
                     height: 2px;
-                    background-color: $main-color;
+                    background-color: var(--main-color);
                 }
             }
         }
@@ -503,24 +544,24 @@ html{
                     flex-direction: column;
                     h3{
                         font-size: 2.5rem;
-                        color: $white-900;
+                        color: var(--white-900);
                     }
                     p{
                         font-size: 1.4rem;
-                        color: $white-800;
+                        color: var(--white-800);
                         font-weight: 300;
                     }
                     &:nth-child(1){
-                        background-color: $color-1;
+                        background-color: var(--color-1);
                     }
                     &:nth-child(2){
-                        background-color: $color-2;
+                        background-color: var(--color-2);
                     }
                     &:nth-child(3){
-                        background-color: $main-color;
+                        background-color: var(--main-color);
                     }
                     &:nth-child(4){
-                        background-color: $dark-700;
+                        background-color: var(--dark-700);
                     }
                 }
             }
@@ -552,7 +593,7 @@ html{
                     position: absolute;
                     width: 36%;
                     height: 2px;
-                    background-color: $main-color;
+                    background-color: var(--main-color);
                 }
             }
         }
@@ -581,17 +622,17 @@ html{
                     }
                 }
                 &--saying{
-                    color: $white-900;
+                    color: var(--white-900);
                     font-size: 1.5rem;
                     font-weight: 300;
                     margin: 1rem 0;
                 }
                 &--name{
-                    color: $main-color;
+                    color: var(--main-color);
                     font-size: 1.5rem;
                 }
                 &--title{
-                    color: $white-800;
+                    color: var(--white-800);
                     font-size: 1.4rem;
                     margin-top: 1rem;
                 }
@@ -623,7 +664,7 @@ html{
                     position: absolute;
                     width: 23%;
                     height: 2px;
-                    background-color: $main-color;
+                    background-color: var(--main-color);
                 }
             }
         }
@@ -664,7 +705,7 @@ html{
                 form{
                     max-width: 40rem;
                     width: 100%;
-                    background-color: $dark-700;
+                    background-color: var(--dark-700);
                     padding: 3rem;
                     border-radius: 3px;
                     box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
@@ -680,14 +721,14 @@ html{
                         margin-bottom: 3rem;
                     }
                     input, textarea{
-                        background-color: $dark-800;
+                        background-color: var(--dark-800);
                         padding: 1.5rem;
                         border-radius: 999px;
                         border: none;
                         outline: none;
-                        color: $white-800;
+                        color: var(--white-800);
                         &::placeholder{
-                            color: $white-800;
+                            color: var(--white-800);
                         }
                     }
                     textarea{
@@ -707,7 +748,7 @@ html{
 
     footer{
         width: 100%;
-        background-color: $dark-700;
+        background-color: var(--dark-700);
         .footer{
             padding: 7rem 0;
             display: grid;
@@ -724,7 +765,7 @@ html{
             }
             h5{
                 font-size: 1.7rem;
-                color: $white-900;
+                color: var(--white-900);
                 text-transform: uppercase;
                 font-weight: 500;
                 margin-bottom: 3rem;
@@ -735,7 +776,7 @@ html{
                 }
                 p{
                     font-size: 1.4rem;
-                    color: $white-800;
+                    color: var(--white-800);
                     font-weight: 300;
                     line-height: 1.5;
                     
@@ -743,7 +784,7 @@ html{
                 .sci{
                     margin-top: 1rem;
                     a{
-                        color: $main-color;
+                        color: var(--main-color);
                         font-size: 1.7rem;
                         margin-right: 1rem;
                     }
@@ -754,7 +795,7 @@ html{
                     display: flex;
                     flex-direction: column;
                     a{
-                        color: $white-800;
+                        color: var(--white-800);
                         font-size: 1.4rem;
                         font-weight: 300;
                         margin-bottom: 1rem;
@@ -765,7 +806,7 @@ html{
                 div{
                     display: flex;
                     margin-bottom: 1.6rem;
-                    color: $white-800;
+                    color: var(--white-800);
                     font-size: 1.4rem;
                     align-items: center;
                     i{
@@ -779,12 +820,12 @@ html{
                     input{
                         width: 100%;
                         text-align: center;
-                        background-color: $dark-800;
+                        background-color: var(--dark-800);
                         padding: 1.5rem;
                         border-radius: 999px;
                         border: none;
                         outline: none;
-                        color: $white-800;
+                        color: var(--white-800);
                     }
                     a{
                         width: 100%;

@@ -1,4 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+:root {
+  --main-color: #24caac;
+  --color-1: #eaa023;
+  --color-2: #e91e63;
+  --dark-700: #2f363e;
+  --dark-800: #24292d;
+  --white-900: #ffffff;
+  --white-800: rgba(255,255,255,0.8);
+}
+
+body {
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+}
+
+body.light {
+  --main-color: #24caac;
+  --color-1: #eaa023;
+  --color-2: #e91e63;
+  --dark-700: #2f363e;
+  --dark-800: #24292d;
+  --white-900: #ffffff;
+  --white-800: rgba(255,255,255,0.8);
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+}
+
+body.dark {
+  --main-color: #24caac;
+  --color-1: #eaa023;
+  --color-2: #e91e63;
+  --dark-700: rgb(228, 228, 228);
+  --dark-800: #ffffff;
+  --white-900: #24292d;
+  --white-800: #2f363e;
+  -webkit-transition: all 1s linear;
+  transition: all 1s linear;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -14,14 +53,39 @@
 
 a {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--white-900);
+}
+
+.btn-toggle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--white-800);
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: var(--dark-800);
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 8;
 }
 
 .btn {
   padding: 1.5rem 3.3rem;
-  background-color: #24caac;
+  background-color: var(--main-color);
   border-radius: 999px;
-  color: #ffffff;
+  color: var(--white-900);
   font-size: 1.6rem;
   display: inline-block;
   font-weight: 500;
@@ -44,8 +108,8 @@ html {
 html header {
   width: 100%;
   position: absolute;
-  background-color: #24292d;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  background-color: var(--dark-800);
+  border-bottom: 1px solid var(--white-800);
 }
 
 html header .nav {
@@ -84,7 +148,7 @@ html header .nav__menu {
 
 html header .nav__menu--link {
   margin: 0 10px;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
 }
 
 @media screen and (max-width: 992px) {
@@ -100,7 +164,7 @@ html header .nav__menu--link {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #2f363e;
+    background-color: var(--dark-700);
     z-index: 9;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -116,15 +180,15 @@ html header .nav__menu--link {
   html header .nav__menu.active a {
     margin: 3rem 10px;
     display: inline-block;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--white-800);
     font-size: 2.4rem;
-    color: #24caac;
+    color: var(--main-color);
   }
 }
 
 html header .nav__icon {
   font-size: 3rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
   display: none;
 }
 
@@ -146,13 +210,13 @@ html header .nav__icon {
 
 html section {
   width: 100%;
-  background-color: #24292d;
+  background-color: var(--dark-800);
 }
 
 html section .title {
   font-size: 2.5rem;
   text-align: center;
-  color: #ffffff;
+  color: var(--white-900);
 }
 
 @media screen and (max-width: 576px) {
@@ -222,7 +286,7 @@ html .hero .main__content h1 {
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1.2;
-  color: #24caac;
+  color: var(--main-color);
 }
 
 @media screen and (max-width: 1110px) {
@@ -238,7 +302,7 @@ html .hero .main__content h1 {
 }
 
 html .hero .main__content h1 span {
-  color: #e91e63;
+  color: var(--color-2);
   position: relative;
   display: inline-block;
   z-index: 1;
@@ -250,14 +314,14 @@ html .hero .main__content h1 span::before {
   width: 100%;
   height: 2px;
   bottom: 1rem;
-  background-color: #ffffff;
+  background-color: var(--white-900);
   -webkit-transform: rotate(-4deg);
           transform: rotate(-4deg);
   z-index: -1;
 }
 
 html .hero .main__content h4 {
-  color: #ffffff;
+  color: var(--white-900);
   font-size: 2rem;
   font-weight: 400;
   margin: 1.5rem 0;
@@ -380,7 +444,7 @@ html .hero .main__img .language span {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
   font-size: 1.6rem;
   -webkit-animation: rotate-c 25s linear infinite;
           animation: rotate-c 25s linear infinite;
@@ -413,7 +477,7 @@ html .hero .main__img .language span.html {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  background-color: #eaa023;
+  background-color: var(--color-1);
 }
 
 @media screen and (max-width: 420px) {
@@ -427,7 +491,7 @@ html .hero .main__img .language span.css {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  background-color: #e91e63;
+  background-color: var(--color-2);
 }
 
 html .hero .main__img .language span.js {
@@ -435,7 +499,7 @@ html .hero .main__img .language span.js {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background-color: #24caac;
+  background-color: var(--main-color);
 }
 
 html .hero .main__img .language span.react {
@@ -443,7 +507,7 @@ html .hero .main__img .language span.react {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background-color: #2f363e;
+  background-color: var(--dark-700);
 }
 
 html .whyus {
@@ -479,7 +543,7 @@ html .whyus h2::before {
   content: '';
   height: 2px;
   width: 35%;
-  background-color: #ffffff;
+  background-color: var(--white-900);
   position: absolute;
   bottom: 0;
   right: 0;
@@ -516,26 +580,26 @@ html .whyus .main {
 
 html .whyus .main__card {
   padding: 3.8rem;
-  background-color: #2f363e;
+  background-color: var(--dark-700);
   -webkit-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
 html .whyus .main__card--icon {
-  color: #24caac;
+  color: var(--main-color);
   font-size: 2.5rem;
 }
 
 html .whyus .main__card--title {
-  color: #ffffff;
+  color: var(--white-900);
   font-size: 1.8rem;
   font-weight: 500;
   margin: 1rem 0;
 }
 
 html .whyus .main__card--desc {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
   font-size: 1.4rem;
   font-weight: 300;
   line-height: 1.4;
@@ -575,7 +639,7 @@ html .courses h2::before {
   position: absolute;
   width: 48%;
   height: 2px;
-  background-color: #24caac;
+  background-color: var(--main-color);
   left: 0;
   bottom: 0;
   -webkit-transform: rotate(-5deg);
@@ -615,7 +679,7 @@ html .courses .main__course {
   border-radius: 5px;
   cursor: pointer;
   overflow: hidden;
-  background-color: #24292d;
+  background-color: var(--dark-800);
   padding-bottom: 1rem;
 }
 
@@ -638,17 +702,17 @@ html .courses .main__course--lectures {
       -ms-flex-align: center;
           align-items: center;
   padding: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
   font-size: 1.3rem;
 }
 
 html .courses .main__course--lectures div {
-  color: #eaa023;
+  color: var(--color-1);
   font-size: 1.2rem;
 }
 
 html .courses .main__course--name {
-  color: #ffffff;
+  color: var(--white-900);
   font-size: 1.7rem;
   font-weight: 500;
   padding-left: 1rem;
@@ -692,7 +756,7 @@ html .achivements .title h2::before {
   position: absolute;
   width: 70%;
   height: 2px;
-  background-color: #24caac;
+  background-color: var(--main-color);
 }
 
 html .achivements .main {
@@ -790,29 +854,29 @@ html .achivements .main__content .box {
 
 html .achivements .main__content .box h3 {
   font-size: 2.5rem;
-  color: #ffffff;
+  color: var(--white-900);
 }
 
 html .achivements .main__content .box p {
   font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
   font-weight: 300;
 }
 
 html .achivements .main__content .box:nth-child(1) {
-  background-color: #eaa023;
+  background-color: var(--color-1);
 }
 
 html .achivements .main__content .box:nth-child(2) {
-  background-color: #e91e63;
+  background-color: var(--color-2);
 }
 
 html .achivements .main__content .box:nth-child(3) {
-  background-color: #24caac;
+  background-color: var(--main-color);
 }
 
 html .achivements .main__content .box:nth-child(4) {
-  background-color: #2f363e;
+  background-color: var(--dark-700);
 }
 
 html .students {
@@ -854,7 +918,7 @@ html .students .title h2::before {
   position: absolute;
   width: 36%;
   height: 2px;
-  background-color: #24caac;
+  background-color: var(--main-color);
 }
 
 html .students .main {
@@ -892,19 +956,19 @@ html .students .main__person--img img {
 }
 
 html .students .main__person--saying {
-  color: #ffffff;
+  color: var(--white-900);
   font-size: 1.5rem;
   font-weight: 300;
   margin: 1rem 0;
 }
 
 html .students .main__person--name {
-  color: #24caac;
+  color: var(--main-color);
   font-size: 1.5rem;
 }
 
 html .students .main__person--title {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
   font-size: 1.4rem;
   margin-top: 1rem;
 }
@@ -947,7 +1011,7 @@ html .contact .title h2::before {
   position: absolute;
   width: 23%;
   height: 2px;
-  background-color: #24caac;
+  background-color: var(--main-color);
 }
 
 html .contact .main {
@@ -1023,7 +1087,7 @@ html .contact .main__form {
 html .contact .main__form form {
   max-width: 40rem;
   width: 100%;
-  background-color: #2f363e;
+  background-color: var(--dark-700);
   padding: 3rem;
   border-radius: 3px;
   -webkit-box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
@@ -1049,28 +1113,28 @@ html .contact .main__form form input, html .contact .main__form form textarea {
 }
 
 html .contact .main__form form input, html .contact .main__form form textarea {
-  background-color: #24292d;
+  background-color: var(--dark-800);
   padding: 1.5rem;
   border-radius: 999px;
   border: none;
   outline: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
 }
 
 html .contact .main__form form input::-webkit-input-placeholder, html .contact .main__form form textarea::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
 }
 
 html .contact .main__form form input:-ms-input-placeholder, html .contact .main__form form textarea:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
 }
 
 html .contact .main__form form input::-ms-input-placeholder, html .contact .main__form form textarea::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
 }
 
 html .contact .main__form form input::placeholder, html .contact .main__form form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
 }
 
 html .contact .main__form form textarea {
@@ -1087,7 +1151,7 @@ html .contact .main__form form .btn {
 
 html footer {
   width: 100%;
-  background-color: #2f363e;
+  background-color: var(--dark-700);
 }
 
 html footer .footer {
@@ -1121,7 +1185,7 @@ html footer .footer {
 
 html footer .footer h5 {
   font-size: 1.7rem;
-  color: #ffffff;
+  color: var(--white-900);
   text-transform: uppercase;
   font-weight: 500;
   margin-bottom: 3rem;
@@ -1135,7 +1199,7 @@ html footer .footer h5 {
 
 html footer .footer__about p {
   font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
   font-weight: 300;
   line-height: 1.5;
 }
@@ -1145,7 +1209,7 @@ html footer .footer__about .sci {
 }
 
 html footer .footer__about .sci a {
-  color: #24caac;
+  color: var(--main-color);
   font-size: 1.7rem;
   margin-right: 1rem;
 }
@@ -1161,7 +1225,7 @@ html footer .footer__link div {
 }
 
 html footer .footer__link div a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
   font-size: 1.4rem;
   font-weight: 300;
   margin-bottom: 1rem;
@@ -1172,7 +1236,7 @@ html footer .footer__contact div {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 1.6rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
   font-size: 1.4rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -1190,12 +1254,12 @@ html footer .footer__mail form {
 html footer .footer__mail form input {
   width: 100%;
   text-align: center;
-  background-color: #24292d;
+  background-color: var(--dark-800);
   padding: 1.5rem;
   border-radius: 999px;
   border: none;
   outline: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white-800);
 }
 
 html footer .footer__mail form a {

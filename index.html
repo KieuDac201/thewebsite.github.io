@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="">
+  <div class="btn-toggle"><i class="fas fa-sun"></i></div>
   <header>
     <div class="nav container">
       <a href="#" class="nav__logo">The Weshala</a>
@@ -25,7 +26,7 @@
       </div>
     </div>
   </header>
-
+  
   <section class="hero" id="home">
     <div class="main container">
       <div class="main__content">
@@ -270,14 +271,37 @@
           <input type="text" placeholder="Email">
           <a href="" class="btn">Subscribe</a>
         </form>
+        <button mat-raised-button (click)="onSetTheme('dark-theme')">Dark</button>
       </div>
     </div>
   </footer>
+
 </body>
 <script>
   const menuIcon = document.querySelector('.nav__icon i');
   const navMenu = document.querySelector('.nav__menu');
   const navMenuLink = document.querySelectorAll('.nav__menu--link');
+  const btnToggle = document.querySelector('.btn-toggle');
+  const btnToggleIcon = document.querySelector('.btn-toggle i');
+  const body = document.querySelector('body');
+  console.log(body);
+  btnToggle.addEventListener('click', () => {
+    if(body.getAttribute('class').includes('dark')){
+      body.classList.remove('dark')
+      body.classList.add('light')
+      
+      btnToggleIcon.classList.remove('fa-moon')
+      btnToggleIcon.classList.add('fa-sun')
+
+    }else{
+      body.classList.remove('light')
+      body.classList.add('dark')
+      btnToggleIcon.classList.remove('fa-sun')
+      btnToggleIcon.classList.add('fa-moon')
+    }
+    
+  })
+
   navMenuLink.forEach(e => {
     e.addEventListener('click', () => {
       if(navMenu.getAttribute('class').includes('active')){
@@ -285,6 +309,7 @@
       }
     })
   })
+
   menuIcon.addEventListener('click', () => {
     
     if(navMenu.getAttribute('class').includes('active')){
