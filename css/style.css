@@ -9,11 +9,6 @@
   --white-800: rgba(255,255,255,0.8);
 }
 
-body {
-  -webkit-transition: all 1s linear;
-  transition: all 1s linear;
-}
-
 body.light {
   --main-color: #24caac;
   --color-1: #eaa023;
@@ -21,9 +16,6 @@ body.light {
   --dark-700: #2f363e;
   --dark-800: #24292d;
   --white-900: #ffffff;
-  --white-800: rgba(255,255,255,0.8);
-  -webkit-transition: all 1s linear;
-  transition: all 1s linear;
 }
 
 body.dark {
@@ -34,8 +26,6 @@ body.dark {
   --dark-800: #ffffff;
   --white-900: #24292d;
   --white-800: #2f363e;
-  -webkit-transition: all 1s linear;
-  transition: all 1s linear;
 }
 
 * {
